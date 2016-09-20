@@ -1,0 +1,13 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ body.title }}</h1>
+    <h2>{{ body.subtitle }} </h2>
+    <img src="{{ body.imageLinks.thumbnail }}" />
+  </body>
+</html>
