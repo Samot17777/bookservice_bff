@@ -13,6 +13,7 @@
     "good-guy-http": "1.7.3",
     "hjs": "0.0.6",
     "morgan": "1.7.0",
+    "nodesi": "1.5.0",
     "request": "2.75.0",
     "serve-favicon": "2.3.0"
   }

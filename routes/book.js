@@ -1,6 +1,7 @@
 var express = require('express');
 var goodGuy = require('good-guy-http')({maxRetries: 3});
 var router = express.Router();
+var jp = require('jsonpath');
 /* GET home page. */
 router.get('/', function (req, res, next) {
     var body = {
@@ -13,9 +14,15 @@ router.get('/', function (req, res, next) {
     res.render('book', { body: body });
 });
 router.get('/:isbn', function (req, res, next) {
-    goodGuy(`https://book-catalog-proxy-1.herokuapp.com/book?isbn=${req.params.isbn}`).then(function (response) {
-        var body = JSON.parse(response.body);
-        res.render('book', { body: body.items[0].volumeInfo });
+    goodGuy(`https://book-catalog-proxy-3.herokuapp.com/book?isbn=${req.params.isbn}`).then(function (response) {
+        response = JSON.parse(response.body);
+            var title = jp.query(response, '$..title');
+            var subtitle = jp.query(response, '$..subtitle');
+            var cover = jp.query(response, '$..thumbnail');
+            res.render('book', { title,subtitle,cover , partials: {
+                layout: 'layout_file'
+            }});
+
     }).catch(next);
 });
 

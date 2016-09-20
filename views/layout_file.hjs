@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<esi:include src="https://kwasniew.github.io/menu.html" />
+    {{$content}}
+
+    {{/content}}
+<esi:include src="https://kwasniew.github.io/footer.html" />
+</body>
+</html>
+
+
+
