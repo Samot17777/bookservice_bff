@@ -8,6 +8,8 @@
     {{$content}}
 
     {{/content}}
+
+
 <esi:include src="https://kwasniew.github.io/footer.html" />
 </body>
 </html>
