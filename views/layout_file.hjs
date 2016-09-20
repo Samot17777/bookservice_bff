@@ -10,7 +10,18 @@
     {{/content}}
 
 
-<esi:include src="https://kwasniew.github.io/footer.html" />
+<a class="include" href="https://kwasniew.github.io/footer.html" />
+<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+<script>
+
+
+$('a.include').each(function(){
+ var self = this;
+    $.get($(this).attr('href'),function (res) {
+        $(self).replaceWith(res);
+    });
+});
+ </script>
 </body>
 </html>
 
