@@ -4,14 +4,12 @@ var router = express.Router();
 var jp = require('jsonpath');
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    var body = {
-        title: 'Nie ma',
-        subtitle: 'ksionrzki',
-        cover: 'http://searchengineland.com/figz/wp-content/seloads/2015/10/google-panda-name3-ss-1920-800x450.jpg',  
-        layout: 'layout_file'
-    };
+    var title=  'Nie ma',
+        subtitle= 'ksionrzki',
+        cover= 'http://searchengineland.com/figz/wp-content/seloads/2015/10/google-panda-name3-ss-1920-800x450.jpg'
+    ;
 
-res.render('book', { body: body });
+    res.render('bookdefault', { title,subtitle,cover });
 });
 router.get('/:isbn', function (req, res, next) {
     req.esiOptions = {
