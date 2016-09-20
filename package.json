@@ -12,6 +12,7 @@
     "express": "4.13.4",
     "good-guy-http": "1.7.3",
     "hjs": "0.0.6",
+    "jsonpath": "0.2.7",
     "morgan": "1.7.0",
     "nodesi": "1.5.0",
     "request": "2.75.0",
