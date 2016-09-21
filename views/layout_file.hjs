@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta x-request-id= {{ correlationId}} />
 </head>
 <body>
 <esi:include src="https://kwasniew.github.io/menu.html" />
