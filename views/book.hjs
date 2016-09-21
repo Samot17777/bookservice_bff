@@ -3,6 +3,6 @@
 <img src="{{cover}}" />
 <h1>{{title}}</h1>
 <h2>{{subtitle}}</h2>
-<esi:include src="https://booknventoryservice.herokuapp.com/stock/{{ isbn }}" x-request-id= {{ xRequestId }} />
+<esi:include src="https://booknventoryservice.herokuapp.com/stock/{{ isbn }}" x-request-id="{{ correlationId }}" />
 {{/content}}
 {{/layout}}
