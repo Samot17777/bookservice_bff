@@ -12,18 +12,20 @@ router.get('/', function (req, res, next) {
     res.render('bookdefault', { title,subtitle,cover });
 });
 router.get('/:isbn', function (req, res, next) {
+    var xRequestId = req.headers['x-request-id'];
     req.esiOptions = {
     headers: {
       Accept: 'text/html'
     }
   };
+ 
     goodGuy(`https://book-catalog-proxy-3.herokuapp.com/book?isbn=${req.params.isbn}`).then(function (response) {
         response = JSON.parse(response.body);
         var title = jp.query(response, '$..title');
         var subtitle = jp.query(response, '$..subtitle');
         var cover = jp.query(response, '$..thumbnail');
         res.render('book', {
-            title, subtitle,isbn:req.params.isbn, cover, partials: {
+            title, subtitle,isbn:req.params.isbn, cover, xRequestId, partials: {
                 layout: 'layout_file'
             }
         });
