@@ -30,7 +30,14 @@ app.use(esiMiddleware({
     return `<!-- GET ${src} resulted in ${error} -->`;
   }
 }));
+app.use(function (req,res,next) {
+    var startRequest = new Date()
+    res.on('finish', function() {
+        console.log(new Date() - startRequest + " ms");
+    });
+    next();
 
+});
 app.use('/', routes);
 app.use('/users', users);
 app.use('/book', book);
